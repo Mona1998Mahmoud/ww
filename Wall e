@@ -1,0 +1,178 @@
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+import numpy as np
+from math import *
+
+
+def drawCircle(r, xc, yc,R,G,B):
+    glBegin(GL_POLYGON)
+    glColor3f(R, G, B)
+    for theta in np.arange(0, 2*pi, 0.001):
+        x = r * cos(theta)
+        y = r * sin(theta)
+
+        glVertex(x + xc, y + yc)
+
+    glEnd()
+def drawhalfCircle(r, xc, yc,R,G,B):
+    glBegin(GL_POLYGON)
+    
+    glColor3f(R, G, B)
+    for theta in np.arange(0, pi/2, 0.001):
+        x = r * cos(theta)
+        y = r * sin(theta)
+
+        glVertex(x *-1+ xc, y + yc)
+        
+
+    glEnd()
+
+def drawinversedhalfCircle(r, xc, yc,R,G,B):
+    glBegin(GL_POLYGON)
+    
+    glColor3f(R, G, B)
+    for theta in np.arange(0, pi/2, 0.001):
+        x = r * cos(theta)
+        y = r * sin(theta)
+
+        
+        glVertex(x + xc, y + yc)
+        
+
+    glEnd()
+
+
+def ofpoints(x,y,v,u,a,b,R,G,B):
+    glBegin(GL_TRIANGLES)
+    glColor3f(R, G, B)
+    glVertex(x,y)
+    glVertex(v,u)
+    glVertex(a,b)
+
+    glEnd()
+
+def rect(x,y,v,u,a,b,c,d,R,G,B):
+    glBegin(GL_POLYGON)
+    glColor3f(R, G, B)
+    glVertex(x,y)
+    glVertex(v,u)
+    glVertex(a,b)
+    glVertex(c,d)
+
+    glEnd()
+
+    
+    
+    
+
+
+def draw():
+    glClearColor(1, 1, 1, 1)
+    glClear(GL_COLOR_BUFFER_BIT)
+
+
+    glBegin(GL_LINES)
+    glVertex(-1, 0)
+    glVertex(1, 0)
+
+    glVertex(0, -1)
+    glVertex(0, 1)
+    glEnd()
+
+ 
+
+
+    rect(-.3,-0.25,-.1,-.25,-.1,-.49,-.3,-.49,0.6,0.6,0.6)
+    rect(.3,-0.25,.1,-.25,.1,-.49,.3,-.49,0.6,0.6,0.6)
+    rect(-.03,0.4,.03,.4,.03,.1,-.03,.1,.81,.82,.8)
+    rect(-.01,0.35,.01,.35,.01,.127,-.01,.127,.9,.9,.9)
+    
+    rect(-.05,0.127,.05,.127,.05,-.122,-.05,-.122,.81,.82,.8)
+    rect(-.03,0.09,.03,.09,.03,-.1,-.03,-.1,.81,.82,.8)
+
+    rect(-.05,0.4,.05,.4,.05,.25,-.05,.25,.81,.82,.8)
+    rect(-.03,0.35,.03,.35,.03,.27,-.03,.27,.9,.9,.9)
+
+    rect(-.2,0,.2,0,.2,-.37,-.2,-.37,1,1,.6)
+    rect(-.18,-.02,.187,-.02,.187,-.17,-.18,-.17,.81,.82,.8)
+
+    rect(-.1,-0.035,.107,-.035,.107,-.127,-.1,-.127,.9,.9,.9)
+
+
+    rect(-.22,-0.1235,-.07,-.1235,-.07,-.07,-.22,-.07,.5,0.5,.56)
+    rect(-.22,-0.1335,-.07,-.1335,-.07,-.18,-.22,-.18,.5,0.5,.56)
+
+    rect(.22,-0.1235,.07,-.1235,.07,-.07,.22,-.07,.5,0.5,.56)
+    rect(.22,-0.1335,.07,-.1335,.07,-.18,.22,-.18,.5,0.5,.56)
+    
+
+    ofpoints(-.081+.185+.049,-.085+.286,.048+.185+.049,.11+.286,-
+             .35+.185+.049,.182+.286,.8,.8,.8)
+    ofpoints(-.081+.185+.049+.02,-.085+.286+.02,.048+.185+.049-.02,.11+.286-.02,-
+             .35+.185+.049+.02,.182+.286-.02,.9,.9,.9)
+
+    ofpoints(.003,.35,.15,.5,-.5+.185+.049,.175+.286+.02,1,1,1)
+
+    ofpoints(-(-.081+.185+.049),-.085+.286,-(.048+.185+.049),.11+.286,-(-
+             .35+.185+.049),.182+.286,.8,.8,.8)
+    ofpoints(-(-.081+.185+.049+.02),-.085+.286+.02,-(.048+.185+.049-.02),.11+.286-.02,-(-
+             .35+.185+.049+.02),.182+.286-.02,.9,.9,.9)
+
+    ofpoints(-.003,.35,-.15,.5,-(-.5+.185+.049+.14),.175+.286+.02,1,1,1)
+
+    drawCircle(.115,.185+.049,.286,.7,.7,.7)
+
+    drawhalfCircle(.09,.10,.32+.02,.8,.8,.8)
+    drawhalfCircle(.07,.10,.32+.02,.9,.9,.9)
+
+
+
+
+    
+    
+
+
+
+       
+    
+    drawCircle(.098,.185+.049,.286,.9,.9,.9)
+
+    drawinversedhalfCircle(.09,-(.105),.338,.8,.8,.8)
+    drawinversedhalfCircle(.07,-(.105),.338,.9,.9,.9) 
+
+    drawCircle(0.095, 0.125+.05, 0.325,.7,.7,.7)
+    drawCircle(0.075, 0.125+.05, 0.325,.85,.85,.85)
+    drawCircle(0.05, 0.125+.05, 0.325,.7,.7,.7)
+    drawCircle(0.03, 0.125+.05, 0.325,.85,.85,.85)
+    drawCircle(0.02, 0.15+.05, 0.35,1,1,1)
+    drawCircle(0.01, 0.04+.05, 0.39,.7,.7,.7)
+    drawCircle(0.01, 0.105+.05, 0.318,1,1,1)
+    drawCircle(0.01,0.24+.05, 0.32,.7,.7,.7)
+    drawCircle(0.01, 0.17+.05,0.22,.7,.7,.7)
+
+    
+    drawCircle(.115,-(.185+.049),.286,.7,.7,.7)
+    drawCircle(.098,-(.185+.049),.286,.9,.9,.9)
+
+    
+    drawCircle(0.095, -0.125-.05, 0.325,.7,.7,.7)
+    drawCircle(0.075, -0.125-.05, 0.325,.85,.85,.85)
+    drawCircle(0.05, -0.125-.05, 0.325,.7,.7,.7)
+    drawCircle(0.03, -0.125-.05, 0.325,.85,.85,.85)
+    drawCircle(0.02, -0.1-.05, 0.35,1,1,1)
+    drawCircle(0.01, -0.04-.05, 0.39,.7,.7,.7)
+    drawCircle(0.01, -0.105-.04-.05, 0.318,1,1,1)
+    drawCircle(0.01,-0.24-.05, 0.32,.7,.7,.7)
+    drawCircle(0.01, -0.17-.05,0.22,.7,.7,.7)
+
+
+
+    glFlush()
+
+
+glutInit()
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
+glutInitWindowSize(500, 500)
+glutCreateWindow(b"Lab2 - Circle Program")
+glutDisplayFunc(draw)
+glutMainLoop()
